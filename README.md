@@ -43,22 +43,5 @@ heroku open
 
 ps：执行上面的命令需要在您的计算机上安装heroku CLI（下载地址：https://devcenter.heroku.com/articles/getting-started-with-php#set-up）
 
-站点加锁
-如果不想让您的You2PHP站点让其他人访问，可以对站点使用密码保护方法——使用htpasswd文件来实现。访问页面之后会弹出一个输入框，需要输入正确的用户名和密码才能浏览网页上的内容，否则会出错。同时搜索引擎无法收录!
-
-1.首先，需要创建一个名为.htpasswd的文件， 将这个.htpasswd文件存放You2PHP的安装目录下。这个文件用于存储用户名和加密后的密码。比如用户名为admin，密码为123456，那么在.htpasswd文件中的内容可能就是这样的：
-
-admin:9dKtKHPyz51Vs
-用户名后紧跟的是密码，用:隔开。而且密码是加密后的密文。上传这个.htpasswd文件You2PHP的安装目录下。有一个在线生成.htpasswd文件的网站：http://www.htaccesstools.com/htpasswd-generator
-通过这个地址可以生成加密后的密码。
-
-2.创建一个新的.htaccess文件，将这个.htaccess文件存放You2PHP的安装目录下。并编辑这个文件，写入如下内容：
-
-AuthName "Restricted Area"
-AuthType Basic
-AuthUserFile /home/hosting/public_html/.htpasswd
-AuthGroupFile /dev/null
-require valid-user
-注意，需要把AuthUserFile后面/home/hosting/public_html/改成您的You2PHP站点绝对安装路径（如果装在子目录，那么应该加上子目录路径，如 /home/hosting/public_html/youtube）
-
-3.现在打开您的You2PHP站点，会弹出一个这样的框框，需要填写正确的用户名和密码才能浏览！可以通过修改.htpasswd文件修改密码。
+详细使用指南：
+https://you2php.github.io/doc/
